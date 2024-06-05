@@ -58,6 +58,7 @@ export default function Note() {
         name='title'
         value={thisNote?.title || ''}
         onChange={handleChange}
+        spellCheck={false}
       />
 
       <textarea
@@ -65,6 +66,7 @@ export default function Note() {
         name='content'
         value={thisNote?.content || ''}
         onChange={handleChange}
+        spellCheck={false}
       />
     </main>
   )
