@@ -563,6 +563,10 @@ video {
   margin-top: 1.5rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -631,8 +635,16 @@ video {
   gap: 2rem;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 .rounded-lg {
@@ -697,6 +709,10 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-2xl {
