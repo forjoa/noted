@@ -34,8 +34,11 @@ const useLocalStorageNotes = () => {
       setNotes((prevNotes) => [...prevNotes, newNote])
     }
   }
+  const deleteNote = (id: string) => {
+    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
+  }
 
-  return [notes, addNote] as const
+  return [notes, addNote, deleteNote] as const
 }
 
 export default useLocalStorageNotes
