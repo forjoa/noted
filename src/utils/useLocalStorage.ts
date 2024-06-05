@@ -8,7 +8,7 @@ const getStoredNotes = () => {
 }
 
 const useLocalStorageNotes = () => {
-  const [notes, setNotes] = useState<Note[]>(getStoredNotes)
+  const [notes, setNotes] = useState<Note[]>(getStoredNotes())
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes))
