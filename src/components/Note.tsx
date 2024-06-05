@@ -2,9 +2,10 @@ import useLocalStorageNotes from '@/utils/useLocalStorage'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import type { Note } from '@/utils/types'
+import { DeleteIcon } from '@/assets/icons'
 
 export default function Note() {
-  const [notes, setNotes] = useLocalStorageNotes()
+  const [notes, setNotes, deleteNote] = useLocalStorageNotes()
   const [thisNote, setThisNote] = useState<Note>()
   const { id } = useParams()
 
@@ -38,7 +39,19 @@ export default function Note() {
   }, [thisNote, setNotes])
 
   return (
-    <main className='w-full bg-gray-100 p-8 flex flex-col gap-8'>
+    <main className='w-full bg-gray-100 p-4 flex flex-col gap-8'>
+      <div className='w-full flex justify-end'>
+        <button
+          className='bg-red-200 p-2 rounded'
+          onClick={() => {
+            deleteNote(thisNote?.id as string)
+            window.location.href = '/'
+          }}
+        >
+          <DeleteIcon />
+        </button>
+      </div>
+
       <input
         className='w-full rounded-xl p-4 text-xl font-bold outline-none'
         type='text'
