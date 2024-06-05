@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-
-interface Note {
-  id: string
-  title: string
-  content: string
-  timestamp: Date
-}
+import type { Note } from '@/utils/types'
 
 const getStoredNotes = () => {
   const storedNotes = localStorage.getItem('notes')

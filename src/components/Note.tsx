@@ -1,13 +1,7 @@
 import useLocalStorageNotes from '@/utils/useLocalStorage'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
-interface Note {
-  id: string
-  title: string
-  content: string
-  timestamp: Date
-}
+import type { Note } from '@/utils/types'
 
 export default function Note() {
   const [notes, setNotes] = useLocalStorageNotes()
