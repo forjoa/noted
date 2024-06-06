@@ -1,7 +1,7 @@
 import notedIcon from '@/assets/noted-icon.png'
 import { AddNoteIcon, NotesIcon } from '@/assets/icons'
 import useLocalStorageNotes from '@/utils/useLocalStorage'
-import { Link } from 'react-router-dom'
+import NotesList from './NotesList'
 
 export default function Aside() {
   const [notes, addNote] = useLocalStorageNotes()
@@ -30,21 +30,13 @@ export default function Aside() {
         </nav>
       </div>
 
-      <div className='text-white mt-4 flex flex-col gap-4'>
-        {notes.map((note, index) => (
-          <div
-            key={index}
-            className='flex justify-center items-center py-4 px-2 dark:bg-gray-950 rounded-lg text-balance text-center'
-          >
-            <Link
-              to={`/${note.id}`}
-              className='hover:underline text-balance text-center'
-            >
-              {note.title}
-            </Link>
-          </div>
-        ))}
-      </div>
+      {notes.length > 0 ? (
+        <NotesList notes={notes} />
+      ) : (
+        <div className='flex justify-center items-center py-4 px-2 dark:bg-gray-950 rounded-lg text-balance text-center'>
+          <p className='text-white'>No notes yet</p>
+        </div>
+      )}
     </aside>
   )
 }
